@@ -1,13 +1,10 @@
 #!/usr/bin/env php
 <?php
 
+include 'src/Dates/BirthDays.php';
+
 $birthDate = "1987-10-14";
-$todayDate = date("Y-m-d");
-
-$birthTime = strtotime($birthDate);
-$todayTime = strtotime($todayDate);
-
-$totalsecs = $todayTime - $birthTime;
-$totalDays = floor($totalsecs / 3600 / 24);
+$days = new \LigaDzi\Dates\BirthDays($birthDate);
+$totalDays = $days->findTotalDays();
 
 echo "$birthDate : $totalDays\n";
